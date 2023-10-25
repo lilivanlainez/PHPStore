@@ -23,7 +23,7 @@
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Vida Informático</a>
+                <a class="navbar-brand" href="#">UFG Market</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -44,8 +44,8 @@
     <header class="bg-dark py-5">
         <div class="container px-4 px-lg-5 my-5">
             <div class="text-center text-white">
-                <h1 class="display-4 fw-bolder">Tienda Online</h1>
-                <p class="lead fw-normal text-white-50 mb-0">Lorem ipsum dolor sit amet.</p>
+                <h1 class="display-4 fw-bolder">UFG Market</h1>
+                <p class="lead fw-normal text-white-50 mb-0">Lo que tu no quieres, otro lo necesita</p>
             </div>
         </div>
     </header>
@@ -97,7 +97,7 @@
     <!-- Footer-->
     <footer class="py-5 bg-dark">
         <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2021</p>
+            <p class="m-0 text-center text-white">Copyright &copy; Proposicion de Lenguajes de Programacion para Negocios</p>
         </div>
     </footer>
     <!-- Bootstrap core JS-->
