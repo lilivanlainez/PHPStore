@@ -98,6 +98,13 @@
     <footer class="py-5 bg-dark">
         <div class="container">
             <p class="m-0 text-center text-white">Copyright &copy; Proposicion de Lenguajes de Programacion para Negocios</p>
+            <!-- Botón de Iniciar Sesión -->
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/index.php">
+                    <i class="fas fa-sign-in-alt"></i>
+                        <span>Iniciar Sesión</span>
+                    </a>    
+                </li>
         </div>
     </footer>
     <!-- Bootstrap core JS-->

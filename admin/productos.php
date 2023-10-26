@@ -15,15 +15,29 @@ if (isset($_POST)) {
         $fecha = date("YmdHis");
         $foto = $fecha . ".jpg";
         $destino = "../assets/img/" . $foto;
-        $query = mysqli_query($conexion, "INSERT INTO productos(nombre, descripcion, precio_normal, precio_rebajado, cantidad, imagen, id_categoria) VALUES ('$nombre', '$descripcion', '$p_normal', '$p_rebajado', $cantidad, '$foto', $categoria)");
-        if ($query) {
-            if (move_uploaded_file($tmpname, $destino)) {
-                header('Location: productos.php');
+
+        if (isset($_POST['product_id'])) {
+            // Redireccionar a editar.php con el ID del producto
+            $product_id = $_POST['product_id'];
+            header("Location: editar.php?id=$product_id");
+            exit;
+        } else {
+            // Este bloque manejará la inserción de un nuevo producto
+            $query = mysqli_query($conexion, "INSERT INTO productos(nombre, descripcion, precio_normal, precio_rebajado, cantidad, imagen, id_categoria) VALUES ('$nombre', '$descripcion', '$p_normal', '$p_rebajado', $cantidad, '$foto', $categoria)");
+
+            if ($query) {
+                if (move_uploaded_file($tmpname, $destino)) {
+                    header('Location: productos.php');
+                }
             }
         }
     }
 }
-include("includes/header.php"); ?>
+
+include("includes/header.php");
+?>
+<!-- Resto de tu código HTML -->
+
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Productos</h1>
     <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" id="abrirProducto"><i class="fas fa-plus fa-sm text-white-50"></i> Nuevo</a>
@@ -59,6 +73,10 @@ include("includes/header.php"); ?>
                             <td>
                                 <form method="post" action="eliminar.php?accion=pro&id=<?php echo $data['id']; ?>" class="d-inline eliminar">
                                     <button class="btn btn-danger" type="submit">Eliminar</button>
+                                </form>
+                                <form method="post" action="" class="d-inline editar">
+                                    <input type="hidden" name="product_id" value="<?php echo $data['id']; ?>">
+                                    <button class="btn btn-primary" type="submit">Editar</button>
                                 </form>
                             </td>
                         </tr>
@@ -129,6 +147,7 @@ include("includes/header.php"); ?>
                             </div>
                         </div>
                     </div>
+                    <input type="hidden" name="operation" value="add">
                     <button class="btn btn-primary" type="submit">Registrar</button>
                 </form>
             </div>
