@@ -1,0 +1,19 @@
+Guia de configuracion de Git usando GitHub
+
+1- obtener el tokeen
+2-Abrir uan terminal en el repositorio que desemamos manejar
+3-escribir el sigueintecomando git config user.name [tu usuario]
+4-escribir el sigueintecomando git config user.mail [tu correo asociada a GitHub]
+5-escribir el sigueintecomando git config user.password [tu token]
+
+
+Hacer commint
+git commit -m [nnombre del repo]
+
+Hacer push
+git push -u origin master 
+
+
+
+
+
