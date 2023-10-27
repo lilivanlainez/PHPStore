@@ -47,7 +47,7 @@ if (!empty($_SESSION['active'])) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Iniciar Sesión</title>
-    <link rel="stylesheet" type="text/css" href="../assets/css/sb-admin-2.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/styleAdmin.css">
     <link rel="shortcut icon" href="../assets/img/favicon.ico" />
 </head>
 
@@ -65,12 +65,13 @@ if (!empty($_SESSION['active'])) {
                         <!-- Nested Row within Card Body -->
                         <div class="row">
                             <div class="col-lg-6 d-none d-lg-block bg-login-image">
-                                <img class="img-thumbnail" src="assets/img/logo.png" alt="">
+                                <img class="img-thumbnail" src="assets/img/ufg.jpeg" alt="">
                             </div>
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                    <img src="/assets/img/logoufg.jpeg" alt="Logo" class="logo">
+                                        <h1 class="h4 text-gray-900 mb-4">Bienvenido</h1>
                                         <?php echo (isset($alert)) ? $alert : ''; ?>
                                     </div>
                                     <form class="user" method="POST" action="" autocomplete="off">

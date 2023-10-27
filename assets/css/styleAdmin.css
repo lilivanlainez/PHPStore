@@ -1,0 +1,101 @@
+/* Estilo para el fondo y fuente */
+body {
+    font-family: Arial, sans-serif;
+    background: url('/assets/img/fondo.jpeg') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Estilo para el contenedor principal */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.2);
+
+}
+
+/* Estilo para el formulario de inicio de sesión */
+/* Estilo para el formulario de inicio de sesión */
+.card {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    padding: 75px 50px;
+    /* Ajustar el tamaño del formulario (ancho y alto iguales) */
+    width: 70%;
+    /* Ajustar el ancho del formulario */
+    text-align: center;
+    position: relative;
+    top: -100px;
+    /* Empieza arriba de la pantalla */
+    animation: slideDown 500ms forwards;
+    /* Agrega la animación de deslizamiento */
+}
+
+/* Animación de deslizamiento desde arriba */
+@keyframes slideDown {
+    0% {
+        top: -100px;
+        /* Empieza arriba de la pantalla */
+    }
+
+    100% {
+        top: 0;
+        /* Termina en su posición original */
+    }
+}
+
+.logo {
+    width: 200px;
+    /* Ajusta el ancho del logo según tus necesidades */
+    height: 100%;
+    /* Mantiene la proporción original del logo */
+}
+
+/* Estilo para el encabezado del formulario */
+.card h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Estilo para el mensaje de alerta */
+.alert {
+    background-color: #e74c3c;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Estilo para los campos de entrada de texto */
+.form-control {
+    width: 75%;
+    padding: 10px;
+    margin: 7px 0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+/* Estilo para el botón de inicio de sesión */
+.btn-login {
+    width: 100%;
+    padding: 15px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Cambiar color de fondo al pasar el mouse sobre el botón de inicio de sesión */
+.btn-login:hover {
+    background-color: #2980b9;
+}
