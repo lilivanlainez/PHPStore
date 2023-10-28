@@ -16,5 +16,5 @@ git push -u PHPstore master
 Adicionar archivo 
 git add [nombre del archivo]
 
-
+k
 
