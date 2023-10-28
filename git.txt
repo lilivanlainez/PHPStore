@@ -8,12 +8,13 @@ Guia de configuracion de Git usando GitHub
 
 
 Hacer commint
-git commit -m [nnombre del repo]
+git commit -m [nombre del repo]
 
 Hacer push
-git push -u origin master 
+git push -u PHPstore master 
 
-
+Adicionar archivo 
+git add [nombre del archivo]
 
 
 
