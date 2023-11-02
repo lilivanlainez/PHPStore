@@ -5,16 +5,10 @@ Guia de configuracion de Git usando GitHub
 3-escribir el sigueintecomando git config user.name [tu usuario]
 4-escribir el sigueintecomando git config user.mail [tu correo asociada a GitHub]
 5-escribir el sigueintecomando git config user.password [tu token]
-
-
-Hacer commint
-git commit -m [nombre del repo]
-
-Hacer push
-git push -u PHPstore master 
-
-Adicionar archivo 
-git add [nombre del archivo]
-
-k
-
+6-git clone [URL del repositorio]
+7-git remote -v
+8-git remote add [repositorio] [nombre del archivo]
+9-git branch
+10-git pull origin main
+11-git commit -m [nombre del repo]
+12-git push -u [nombre del repo] main
