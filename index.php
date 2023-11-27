@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Carrito de Compras</title>
+    <title>Zareshka</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <!-- Bootstrap icons-->
@@ -18,12 +18,12 @@
 </head>
 
 <body>
-    <a href="#" class="btn-flotante" id="btnCarrito">Carrito <span class="badge bg-success" id="carrito">0</span></a>
+    <a href="#" class="btn-flotante" id="btnCarrito">Zareshka <span class="badge bg-success" id="carrito">0</span></a>
     <!-- Navigation-->
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">UFG Market</a>
+                <a class="navbar-brand" href="#">Zareshka</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -36,18 +36,26 @@
                             <a href="#" class="nav-link" category="<?php echo $data['categoria']; ?>"><?php echo $data['categoria']; ?></a>
                         <?php } ?>
                     </ul>
+                    
                 </div>
+                <!-- Botón de Iniciar Sesión -->
+                
+                    <a class="nav-link" href="/admin/index.php">
+                    <i class="fas fa-sign-in-alt"></i>
+                        <span>Iniciar Sesión</span>
+                    </a>    
+                
             </div>
         </nav>
     </div>
     <!-- Header-->
     <header class="bg-dark py-5">
-        <div class="container px-4 px-lg-5 my-5">
-            <div class="text-center text-white">
-                <h1 class="display-4 fw-bolder">UFG Market</h1>
-                <p class="lead fw-normal text-white-50 mb-0">Lo que tu no quieres, otro lo necesita</p>
-            </div>
+        <!-- Banner con Fondo -->
+    <div class="banner-container">
+    <div class="content">
+            <img src="/assets/img/logo.png" alt="Logo de Zarezka"> <!-- Cambia 'tu-logo.png' con la ruta de tu logo -->
         </div>
+    </div>
     </header>
     <section class="py-5">
         <div class="container px-4 px-lg-5">
@@ -97,14 +105,8 @@
     <!-- Footer-->
     <footer class="py-5 bg-dark">
         <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; Proposicion de Lenguajes de Programacion para Negocios</p>
-            <!-- Botón de Iniciar Sesión -->
-                <li class="nav-item">
-                    <a class="nav-link" href="/admin/index.php">
-                    <i class="fas fa-sign-in-alt"></i>
-                        <span>Iniciar Sesión</span>
-                    </a>    
-                </li>
+            <p class="m-0 text-center text-white">Copyright &copy; Gestion Estrategica de Emprendimiento y Negocios</p>
+            
         </div>
     </footer>
     <!-- Bootstrap core JS-->
