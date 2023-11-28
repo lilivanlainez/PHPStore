@@ -18,7 +18,7 @@
 </head>
 
 <body>
-    <a href="#" class="btn-flotante" id="btnCarrito">Zareshka <span class="badge bg-success" id="carrito">0</span></a>
+    <a href="#" class="btn-flotante" id="btnCarrito">Carrito<span class="badge bg-success" id="carrito">0</span></a>
     <!-- Navigation-->
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light">

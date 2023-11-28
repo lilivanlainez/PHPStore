@@ -70,7 +70,7 @@ if (!empty($_SESSION['active'])) {
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
-                                    <img src="/assets/img/logoufg.jpeg" alt="Logo" class="logo">
+                                    <img src="/assets/img/logo.png" alt="Logo" class="logo">
                                         <h1 class="h4 text-gray-900 mb-4">Bienvenido</h1>
                                         <?php echo (isset($alert)) ? $alert : ''; ?>
                                     </div>
