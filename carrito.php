@@ -83,6 +83,8 @@ require_once "config/config.php";
     <script src="assets/js/jquery-3.6.0.min.js"></script>
     <script src="https://www.paypal.com/sdk/js?client-id=<?php echo CLIENT_ID; ?>&locale=<?php echo LOCALE; ?>"></script>
     <script src="assets/js/scripts.js"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=Aea6PpK3-1fLwlHkTolC6urviWivZDgkcTdAOzm4jW_yCl973lRlNScyCnWyZIRDjr3oxZwyL9TcFVwq"></script>
+    
     <script>
         mostrarCarrito();
 
@@ -121,6 +123,7 @@ require_once "config/config.php";
                                     shape: 'pill',
                                     label: 'pay'
                                 },
+                                
                                 createOrder: function(data, actions) {
                                     // This function sets up the details of the transaction, including the amount and line item details.
                                     return actions.order.create({
