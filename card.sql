@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 12-12-2021 a las 08:41:10
--- Versión del servidor: 10.4.20-MariaDB
--- Versión de PHP: 8.0.9
+-- Host: localhost
+-- Generation Time: Nov 29, 2023 at 07:18 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,34 +18,66 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `card`
+-- Database: `card`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `categorias`
+-- Table structure for table `categorias`
 --
 
 CREATE TABLE `categorias` (
   `id` int(11) NOT NULL,
   `categoria` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `categorias`
+-- Dumping data for table `categorias`
 --
 
 INSERT INTO `categorias` (`id`, `categoria`) VALUES
-(1, 'Tecnologia'),
 (2, 'Bebidas'),
 (3, 'Muebles'),
-(4, 'Ropas');
+(4, 'Ropas'),
+(10, 'Libros'),
+(12, 'Vehiculos');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `productos`
+-- Table structure for table `compra`
+--
+
+CREATE TABLE `compra` (
+  `id` int(11) NOT NULL,
+  `id_transaccion` varchar(20) NOT NULL,
+  `fecha` datetime NOT NULL,
+  `status` varchar(20) NOT NULL,
+  `email` int(50) NOT NULL,
+  `id_cliente` int(20) NOT NULL,
+  `total` decimal(10,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `detalle_compra`
+--
+
+CREATE TABLE `detalle_compra` (
+  `id` int(11) NOT NULL,
+  `id_compra` int(11) NOT NULL,
+  `id_productos` int(11) NOT NULL,
+  `nombre` varchar(200) NOT NULL,
+  `precio` decimal(10,2) NOT NULL,
+  `cantidad` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `productos`
 --
 
 CREATE TABLE `productos` (
@@ -57,26 +89,23 @@ CREATE TABLE `productos` (
   `cantidad` int(11) NOT NULL,
   `imagen` varchar(50) NOT NULL,
   `id_categoria` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `productos`
+-- Dumping data for table `productos`
 --
 
 INSERT INTO `productos` (`id`, `nombre`, `descripcion`, `precio_normal`, `precio_rebajado`, `cantidad`, `imagen`, `id_categoria`) VALUES
-(1, 'laptop', 'lenovo core i7', '5000.00', '4800.00', 5, '20211210162502.jpg', 1),
-(2, 'Celular', 'samsung galaxy a12', '800.00', '700.00', 20, '20211211192037.jpg', 1),
-(3, 'CELULAR', 'LG K50', '800.00', '750.00', 23, '20211211212315.jpg', 1),
-(4, 'COMPUTADORA', 'HP Touchsmart 300', '2500.00', '2000.00', 15, '20211211212449.jpg', 1),
-(5, 'Vino', 'Ninguna', '28.00', '20.00', 30, '20211212082421.jpg', 2),
-(6, 'Coca cola', '1.5 ml', '5.00', '5.00', 15, '20211212082628.jpg', 2),
-(7, 'Escritorio', 'Meterial Fino', '230.00', '200.00', 10, '20211212082759.jpg', 3),
-(8, 'Abrigo', 'Para niños', '130.00', '120.00', 90, '20211212083037.jpg', 4);
+(5, 'Vino', 'Ninguna', 28.00, 20.00, 30, '20211212082421.jpg', 2),
+(6, 'Pepsy', '1.5 ml', 5.00, 4.25, 50, '20231026055601.jpg', 2),
+(7, 'Escritorio', 'Meterial Fino', 230.00, 200.00, 10, '20211212082759.jpg', 3),
+(8, 'Abrigo', 'Para niños', 130.00, 120.00, 90, '20211212083037.jpg', 4),
+(11, 'Carro', 'carro', 25000.00, 20000.00, 15, '20231027214638.jpg', 12);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuarios`
+-- Table structure for table `usuarios`
 --
 
 CREATE TABLE `usuarios` (
@@ -84,66 +113,78 @@ CREATE TABLE `usuarios` (
   `usuario` varchar(20) NOT NULL,
   `nombre` varchar(100) NOT NULL,
   `clave` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `usuarios`
+-- Dumping data for table `usuarios`
 --
 
 INSERT INTO `usuarios` (`id`, `usuario`, `nombre`, `clave`) VALUES
-(1, 'admin', 'Angel Sifuentes', '21232f297a57a5a743894a0e4a801fc3');
+(1, 'admin', 'Ivan Lainez', '21232f297a57a5a743894a0e4a801fc3');
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `categorias`
+-- Indexes for table `categorias`
 --
 ALTER TABLE `categorias`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `productos`
+-- Indexes for table `compra`
+--
+ALTER TABLE `compra`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `productos`
 --
 ALTER TABLE `productos`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_categoria` (`id_categoria`);
 
 --
--- Indices de la tabla `usuarios`
+-- Indexes for table `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `categorias`
+-- AUTO_INCREMENT for table `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT de la tabla `productos`
+-- AUTO_INCREMENT for table `compra`
+--
+ALTER TABLE `compra`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT de la tabla `usuarios`
+-- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- Restricciones para tablas volcadas
+-- Constraints for dumped tables
 --
 
 --
--- Filtros para la tabla `productos`
+-- Constraints for table `productos`
 --
 ALTER TABLE `productos`
   ADD CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;

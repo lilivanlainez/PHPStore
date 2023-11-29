@@ -24,7 +24,7 @@ require_once "config/config.php";
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
-                <a class="navbar-brand" href="./">UFG Market</a>
+                <a class="navbar-brand" href="./">Zhareska</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -62,7 +62,7 @@ require_once "config/config.php";
                     </div>
                 </div>
                 <div class="col-md-5 ms-auto">
-                    <h4>Total a Pagar: <span id="total_pagar">0.00</span></h4>
+                    <h4>Total a Pagar: $<span id="total_pagar">0.00</span></h4>
                     <div class="d-grid gap-2">
                         <div id="paypal-button-container"></div>
                         <button class="btn btn-warning" type="button" id="btnVaciar">Vaciar Carrito</button>
@@ -109,9 +109,9 @@ require_once "config/config.php";
                             <tr>
                                 <td>${element.id}</td>
                                 <td>${element.nombre}</td>
-                                <td>${element.precio}</td>
+                                <td>$${element.precio}</td>
                                 <td>1</td>
-                                <td>${element.precio}</td>
+                                <td>$${element.precio}</td>
                             </tr>
                             `;
                             });
@@ -135,12 +135,26 @@ require_once "config/config.php";
                                     });
                                 },
                                 onApprove: function(data, actions) {
+                                    let URL = 'clases/captura.php'
                                     // This function captures the funds from the transaction.
                                     return actions.order.capture().then(function(details) {
                                         // This function shows a transaction success message to your buyer.
                                         alert('Transaction completed by ' + details.payer.name.given_name);
-                                    });
-                                }
+                                    console.log(details)
+                                    let url = 'clases/captura.php'
+                                    
+                                    return fetch(ur,{
+                                        method:'post',
+                                        header:{
+                                            'content-type': 'application/json'
+                                        },
+                                        body: JSON.stringify({
+                                            details:details
+                                        })
+                                    }) 
+                                    
+                                });
+                            }
                             }).render('#paypal-button-container');
                         },
                         error: function(error) {
