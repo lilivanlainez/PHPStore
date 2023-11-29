@@ -1,90 +1,89 @@
-<?php require_once "config/conexion.php";
+<?php
+// confirmacion_pedido.php
+require_once "config/conexion.php";
 require_once "config/config.php";
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <title>Carrito de Compras</title>
-    <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-    <!-- Bootstrap icons-->
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" /> -->
-    <!-- Core theme CSS (includes Bootstrap)-->
+    <!-- ... (código del encabezado) ... -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="assets/css/styles.css" rel="stylesheet" />
     <link href="assets/css/estilos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/informacion_cliente.css">
+    <link rel="stylesheet" href="assets/css/detalles_entrega.css">
+    <link rel="stylesheet" href="assets/css/confirmacionde_pedido.css">
+    <title>Confirmación de Pedido</title>
+
 </head>
 
 <body>
-    <!-- Navigation-->
     <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="./">Zareshka</a>
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </div>
-        </nav>
+        <h2>Confirmación de Pedido</h2>
+        <!-- Mostrar información del cliente -->
+        <div id="infoCliente">
+            <h4>Información del Cliente:</h4>
+            <script>
+                // Recuperar datos del localStorage en JavaScript
+                var informacionCliente = JSON.parse(localStorage.getItem('informacion_cliente'));
+
+                // Verificar si hay información del cliente
+                if (informacionCliente) {
+                    document.write("<p><strong>Nombre:</strong> " + informacionCliente.nombre + "</p>");
+                    document.write("<p><strong>Correo Electrónico:</strong> " + informacionCliente.correo + "</p>");
+                    document.write("<p><strong>Teléfono:</strong> " + informacionCliente.telefono + "</p>");
+                } else {
+                    document.write("<p>No hay información del cliente almacenada.</p>");
+                }
+            </script>
+        </div>
+<!-- Mostrar detalles de entrega -->
+<div id="detallesEntrega">
+    <h4>Detalles de Entrega:</h4>
+    <script>
+        // Recuperar detalles de entrega desde la entrada del cuerpo en JavaScript
+        var detallesEntrega = JSON.parse(localStorage.getItem('detalles_entrega'));
+
+        // Verificar si hay detalles de entrega
+        if (detallesEntrega) {
+            document.write("<p><strong>Departamento:</strong> " + detallesEntrega.departamento + "</p>");
+            document.write("<p><strong>Municipio:</strong> " + detallesEntrega.municipio + "</p>");
+            document.write("<p><strong>Dirección:</strong> " + detallesEntrega.direccion + "</p>");
+            document.write("<p><strong>Punto de Referencia:</strong> " + detallesEntrega.referencia + "</p>");
+        } else {
+            document.write("<p>No hay detalles de entrega almacenados.</p>");
+        }
+    </script>
+</div>
+
+
+        <div class="table-responsive">
+            <h4>Productos en el Carrito:</h4>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Producto</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                        <th>Sub Total</th>
+                    </tr>
+                </thead>
+                <tbody id="tblCarrito">
+
+                </tbody>
+            </table>
+        </div>
+        <h4>Total a Pagar: $<span id="total_pagar">0.00</span></h4>
+        <div id="paypal-button-container"></div>
     </div>
-    <!-- Header-->
-    <header class="bg-dark py-5">
-        <div class="container px-4 px-lg-5 my-5">
-            <div class="text-center text-white">
-                <h1 class="display-4 fw-bolder">Carrito</h1>
-                <p class="lead fw-normal text-white-50 mb-0">Tus Productos Agregados.</p>
-            </div>
-        </div>
-    </header>
-    <section class="py-5">
-        <div class="container px-4 px-lg-5">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="table-responsive">
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Producto</th>
-                                    <th>Precio</th>
-                                    <th>Cantidad</th>
-                                    <th>Sub Total</th>
-                                </tr>
-                            </thead>
-                            <tbody id="tblCarrito">
 
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="col-md-5 ms-auto">
-                    <h4>Total a Pagar: $<span id="total_pagar">0.00</span></h4>
-                    <div class="d-grid gap-2">
-                         <!-- Agregar el botón para redirigir a informacion_cliente.php -->
-                            <a href="informacion_cliente.php" class="btn btn-primary">Confirmar compra</a>
-
-
-                        <button class="btn btn-warning" type="button" id="btnVaciar">Vaciar Carrito</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Footer-->
-    <footer class="py-5 bg-dark">
-        <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; Zareshka 2023</p>
-        </div>
-    </footer>
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
     <script src="assets/js/jquery-3.6.0.min.js"></script>
-    <script src="https://www.paypal.com/sdk/js?client-id=<?php echo CLIENT_ID; ?>&locale=<?php echo LOCALE; ?>"></script>
-    <script src="assets/js/scripts.js"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=ATLP4_Qle2HL_gPKZQ4TOAtwhk9FzEBbkGmH9JzN9-ltq8ZTn0Hs4cQ9ktNV9evI7fvztxbHgk2qGb7f"></script>
     <script>
         mostrarCarrito();
 
@@ -117,7 +116,7 @@ require_once "config/config.php";
                             });
                             $('#tblCarrito').html(html);
                             $('#total_pagar').text(res.total);
-                            /*paypal.Buttons({
+                            paypal.Buttons({
                                 style: {
                                     color: 'blue',
                                     shape: 'pill',
@@ -156,7 +155,7 @@ require_once "config/config.php";
                                     
                                 });
                             }
-                            }).render('#paypal-button-container');*/
+                            }).render('#paypal-button-container');
                         },
                         error: function(error) {
                             console.log(error);
@@ -165,7 +164,7 @@ require_once "config/config.php";
                 }
             }
         }
-    </script>*/
+    </script>
 </body>
 
 </html>
