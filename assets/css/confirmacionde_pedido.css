@@ -1,31 +1,87 @@
-/* assets/css/confirmacion_pedido.css */
+/* Estilo general */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #495057;
+}
 
 .container {
     max-width: 800px;
-    margin: 0 auto;
+    margin: 20px auto;
     padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
-h2 {
-    color: #333;
-}
-
-#infoCliente,
-#detallesEntrega {
-    margin-top: 20px;
-    border: 1px solid #ccc;
-    padding: 15px;
-}
-
-h4 {
-    color: #555;
-}
-
-p {
-    margin-bottom: 10px;
-}
-
-strong {
+h2, h4 {
     color: #007bff;
-    /* Azul, puedes cambiarlo al color que prefieras */
+}
+
+/* Estilo de la tabla de productos en el carrito */
+.table-responsive {
+    margin-top: 20px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.table th, .table td {
+    border: 1px solid #dee2e6;
+    padding: 12px;
+    text-align: left;
+}
+
+.table th {
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* Estilo para el total a pagar */
+#total_pagar {
+    font-weight: bold;
+    color: #007bff;
+    font-size: 18px;
+}
+
+/* Estilo para el contenedor de PayPal */
+#paypal-button-container {
+    margin-top: 20px;
+    
+}
+
+
+/* Estilo para la información del cliente y detalles de entrega */
+#infoCliente, #detallesEntrega {
+    margin-top: 20px;
+}
+
+#infoCliente h4, #detallesEntrega h4 {
+    margin-bottom: 10px;
+    color: #007bff;
+}
+
+#infoCliente p, #detallesEntrega p {
+    margin-bottom: 5px;
+}
+
+/* Estilo para el botón Siguiente */
+.btn-siguiente {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-siguiente:hover {
+    background-color: #0056b3;
 }

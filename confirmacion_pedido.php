@@ -14,8 +14,7 @@ require_once "config/config.php";
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="assets/css/styles.css" rel="stylesheet" />
     <link href="assets/css/estilos.css" rel="stylesheet" />
-    <link rel="stylesheet" href="assets/css/informacion_cliente.css">
-    <link rel="stylesheet" href="assets/css/detalles_entrega.css">
+    
     <link rel="stylesheet" href="assets/css/confirmacionde_pedido.css">
     <title>Confirmación de Pedido</title>
 
@@ -122,6 +121,7 @@ require_once "config/config.php";
                                     shape: 'pill',
                                     label: 'pay'
                                 },
+                                size: 'responsive',
                                 
                                 createOrder: function(data, actions) {
                                     // This function sets up the details of the transaction, including the amount and line item details.

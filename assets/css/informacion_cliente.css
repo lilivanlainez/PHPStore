@@ -1,47 +1,85 @@
 /* assets/css/informacion_cliente.css */
 
+body {
+    font-family: Arial, sans-serif;
+}
+
 .container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 0px;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+}
+
+.contenedor-flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cont1,
+.cont2 {
+    width: 48%;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
 }
 
 h2 {
-    color: #333;
-    margin-bottom: 20px;
+    color: #007bff;
 }
 
-#formInformacionCliente {
-    display: flex;
-    flex-direction: column;
+.form-group {
+    margin-bottom: 10px;
+}
+.form-label1{
+    margin-bottom: 10px;
 }
 
-#formInformacionCliente .form-group {
-    margin-bottom: 15px;
+/* Botón */
+.btn-container {
+    text-align: center;
+    margin-top: 20px;
 }
 
-#formInformacionCliente label {
-    color: #555;
-    margin-bottom: 5px;
-}
-
-#formInformacionCliente input {
-    width: 100%;
-    padding: 8px;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-#formInformacionCliente button {
-    padding: 10px;
+.btn-primary {
     background-color: #007bff;
     color: #fff;
+    cursor: pointer;
+    padding: 10px 20px;
     border: none;
     border-radius: 4px;
-    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-#formInformacionCliente button:hover {
+.btn-primary:hover {
     background-color: #0056b3;
+}
+
+/* Animación de deslizamiento desde arriba */
+.card {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    width: 60%;
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 40%);
+    animation: slideDown 500ms forwards;
+}
+
+
+@keyframes slideDown {
+    0% {
+        top: -100px;
+    }
+
+    100% {
+        top: 0;
+    }
 }
