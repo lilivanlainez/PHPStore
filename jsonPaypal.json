@@ -1,0 +1,72 @@
+{
+    "id": "88N351197Y042452H",
+    "intent": "CAPTURE",
+    "status": "COMPLETED",
+    "purchase_units": [
+        {
+            "reference_id": "default",
+            "amount": {
+                "currency_code": "USD",
+                "value": "35.98"
+            },
+            "payee": {
+                "email_address": "sb-zbqyl27924033@business.example.com",
+                "merchant_id": "6ES3A8TMZ94YU"
+            },
+            "shipping": {
+                "name": {
+                    "full_name": "Ivan Lainez"
+                },
+                "address": {
+                    "address_line_1": "Free Trade Zone",
+                    "admin_area_2": "San Salvador",
+                    "admin_area_1": "San Salvador",
+                    "postal_code": "1120",
+                    "country_code": "SV"
+                }
+            },
+            "payments": {
+                "captures": [
+                    {
+                        "id": "0T361468HS881263B",
+                        "status": "COMPLETED",
+                        "amount": {
+                            "currency_code": "USD",
+                            "value": "35.98"
+                        },
+                        "final_capture": true,
+                        "seller_protection": {
+                            "status": "ELIGIBLE",
+                            "dispute_categories": [
+                                "ITEM_NOT_RECEIVED",
+                                "UNAUTHORIZED_TRANSACTION"
+                            ]
+                        },
+                        "create_time": "2023-12-01T00:25:41Z",
+                        "update_time": "2023-12-01T00:25:41Z"
+                    }
+                ]
+            }
+        }
+    ],
+    "payer": {
+        "name": {
+            "given_name": "Ivan",
+            "surname": "Lainez"
+        },
+        "email_address": "sb-43n4is15326122@business.example.com",
+        "payer_id": "G8RF8R5689NLJ",
+        "address": {
+            "country_code": "SV"
+        }
+    },
+    "create_time": "2023-12-01T00:25:34Z",
+    "update_time": "2023-12-01T00:25:41Z",
+    "links": [
+        {
+            "href": "https://api.sandbox.paypal.com/v2/checkout/orders/88N351197Y042452H",
+            "rel": "self",
+            "method": "GET"
+        }
+    ]
+}

@@ -82,7 +82,7 @@ require_once "config/config.php";
     </div>
 
     <script src="assets/js/jquery-3.6.0.min.js"></script>
-    <script src="https://www.paypal.com/sdk/js?client-id=ATLP4_Qle2HL_gPKZQ4TOAtwhk9FzEBbkGmH9JzN9-ltq8ZTn0Hs4cQ9ktNV9evI7fvztxbHgk2qGb7f"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=Aea6PpK3-1fLwlHkTolC6urviWivZDgkcTdAOzm4jW_yCl973lRlNScyCnWyZIRDjr3oxZwyL9TcFVwq"></script>
     <script>
         mostrarCarrito();
 
@@ -134,18 +134,17 @@ require_once "config/config.php";
                                     });
                                 },
                                 onApprove: function(data, actions) {
-                                    let URL = 'clases/captura.php'
+                                    
                                     // This function captures the funds from the transaction.
-                                    return actions.order.capture().then(function(details) {
+                                    actions.order.capture().then(function(details) {
                                         // This function shows a transaction success message to your buyer.
-                                        window.location.href = 'pago_completado.php';
+                                        //window.location.href = 'pago_completado.php';
                                         //alert('Transaction completed by ' + details.payer.name.given_name);
                                     console.log(details)
-                                    let url = 'clases/captura.php'
-                                    
-                                    return fetch(ur,{
+                                    let url = 'captura.php'
+                                    return fetch(url,{
                                         method:'post',
-                                        header:{
+                                        headers:{
                                             'content-type': 'application/json'
                                         },
                                         body: JSON.stringify({
