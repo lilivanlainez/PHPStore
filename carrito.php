@@ -61,7 +61,7 @@ require_once "config/config.php";
                     </div>
                 </div>
                 <div class="col-md-5 ms-auto">
-                    <h4>Total a Pagar: $<span id="total_pagar">0.00</span></h4>
+                    <h4>Total a Pagar: $<span id="total_pagar">0.00</span> Costo de envio: $2.50</h4>
                     <div class="d-grid gap-2">
                          <!-- Agregar el botón para redirigir a informacion_cliente.php -->
                             <a href="informacion_cliente.php" class="btn btn-primary">Confirmar compra</a>

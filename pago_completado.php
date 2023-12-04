@@ -70,18 +70,18 @@
 <body>
 
 <div id="container">
-  <h1>Querido [Nombre del Cliente],</h1>
+  <h1>Querido Cliente</h1>
 
-  <p>¡Gracias por elegir [Nombre de tu Tienda]! Estamos encantados de que hayas confiado en nosotros para tu reciente compra. Tu satisfacción es nuestra prioridad, y estamos seguros de que disfrutarás de tu nuevo [Nombre del Artículo].</p>
+  <p>¡Gracias por elegir Zareshka! Estamos encantados de que hayas confiado en nosotros para tu reciente compra. Tu satisfacción es nuestra prioridad, y estamos seguros de que disfrutarás de tu nuevo articulo.</p>
 
   <p>Nos esforzamos por brindar productos de alta calidad y un servicio excepcional, y tu elección nos motiva a seguir mejorando. Si tienes alguna pregunta o comentario, no dudes en ponerte en contacto con nuestro equipo de atención al cliente.</p>
 
-  <p>¡Gracias nuevamente por ser parte de la familia [Nombre de tu Tienda]!</p>
+  <p>¡Gracias nuevamente por ser parte de la familia Zareshka!</p>
 
   <button id="buyButton" onclick="location.href='index.php'">Volver a comprar</button>
 
   <footer>
-    <p>Atentamente,<br>[Nombre de tu Tienda]</p>
+    <p>Atentamente,<br>Zareshka</p>
     <img id="logo" src="/assets/img/logo.png" alt="Logo de tu Tienda">
   </footer>
 </div>

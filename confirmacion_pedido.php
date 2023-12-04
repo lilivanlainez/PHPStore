@@ -138,7 +138,7 @@ require_once "config/config.php";
                                     // This function captures the funds from the transaction.
                                     actions.order.capture().then(function(details) {
                                         // This function shows a transaction success message to your buyer.
-                                        //window.location.href = 'pago_completado.php';
+                                        window.location.href = 'pago_completado.php';
                                         //alert('Transaction completed by ' + details.payer.name.given_name);
                                     console.log(details)
                                     let url = 'captura.php'
