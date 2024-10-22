@@ -34,7 +34,8 @@ h2 {
 .form-group {
     margin-bottom: 10px;
 }
-.form-label1{
+
+.form-label1 {
     margin-bottom: 10px;
 }
 
@@ -69,7 +70,7 @@ h2 {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, 40%);
+    transform: translate(-50%, 0%);
     animation: slideDown 500ms forwards;
 }
 
