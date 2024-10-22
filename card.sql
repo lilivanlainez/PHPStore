@@ -50,11 +50,14 @@ SET time_zone = "+00:00";
 
 --
 
-CREATE TABLE
-    `categorias` (
-        `id` int(11) NOT NULL,
-        `categoria` varchar(50) NOT NULL
-    ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
+CREATE DATABASE card;
+
+USE card;
+
+CREATE TABLE `categorias` (
+    `id` int(11) NOT NULL,
+    `categoria` varchar(50) NOT NULL
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
 
 --
 
@@ -64,7 +67,11 @@ CREATE TABLE
 
 INSERT INTO
     `categorias` (`id`, `categoria`)
-VALUES (2, 'Bebidas'), (3, 'Muebles'), (4, 'Ropas'), (10, 'Libros'), (12, 'Vehiculos');
+VALUES (2, 'Bebidas'),
+    (3, 'Muebles'),
+    (4, 'Ropas'),
+    (10, 'Libros'),
+    (12, 'Vehiculos');
 
 -- --------------------------------------------------------
 
@@ -74,16 +81,15 @@ VALUES (2, 'Bebidas'), (3, 'Muebles'), (4, 'Ropas'), (10, 'Libros'), (12, 'Vehic
 
 --
 
-CREATE TABLE
-    `compra` (
-        `id` int(11) NOT NULL,
-        `id_transaccion` varchar(20) NOT NULL,
-        `fecha` datetime NOT NULL,
-        `status` varchar(20) NOT NULL,
-        `email` int(50) NOT NULL,
-        `id_cliente` int(20) NOT NULL,
-        `total` decimal(10, 2) NOT NULL
-    ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
+CREATE TABLE `compra` (
+    `id` int(11) NOT NULL,
+    `id_transaccion` varchar(20) NOT NULL,
+    `fecha` datetime NOT NULL,
+    `status` varchar(20) NOT NULL,
+    `email` int(50) NOT NULL,
+    `id_cliente` int(20) NOT NULL,
+    `total` decimal(10, 2) NOT NULL
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -93,15 +99,14 @@ CREATE TABLE
 
 --
 
-CREATE TABLE
-    `detalle_compra` (
-        `id` int(11) NOT NULL,
-        `id_compra` int(11) NOT NULL,
-        `id_productos` int(11) NOT NULL,
-        `nombre` varchar(200) NOT NULL,
-        `precio` decimal(10, 2) NOT NULL,
-        `cantidad` int(11) NOT NULL
-    ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
+CREATE TABLE `detalle_compra` (
+    `id` int(11) NOT NULL,
+    `id_compra` int(11) NOT NULL,
+    `id_productos` int(11) NOT NULL,
+    `nombre` varchar(200) NOT NULL,
+    `precio` decimal(10, 2) NOT NULL,
+    `cantidad` int(11) NOT NULL
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -111,17 +116,16 @@ CREATE TABLE
 
 --
 
-CREATE TABLE
-    `productos` (
-        `id` int(11) NOT NULL,
-        `nombre` varchar(255) NOT NULL,
-        `descripcion` text NOT NULL,
-        `precio_normal` decimal(10, 2) NOT NULL,
-        `precio_rebajado` decimal(10, 2) NOT NULL,
-        `cantidad` int(11) NOT NULL,
-        `imagen` varchar(50) NOT NULL,
-        `id_categoria` int(11) NOT NULL
-    ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
+CREATE TABLE `productos` (
+    `id` int(11) NOT NULL,
+    `nombre` varchar(255) NOT NULL,
+    `descripcion` text NOT NULL,
+    `precio_normal` decimal(10, 2) NOT NULL,
+    `precio_rebajado` decimal(10, 2) NOT NULL,
+    `cantidad` int(11) NOT NULL,
+    `imagen` varchar(50) NOT NULL,
+    `id_categoria` int(11) NOT NULL
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
 
 --
 
@@ -149,7 +153,8 @@ VALUES (
         30,
         '20211212082421.jpg',
         2
-    ), (
+    ),
+    (
         6,
         'Pepsy',
         '1.5 ml',
@@ -158,7 +163,8 @@ VALUES (
         50,
         '20231026055601.jpg',
         2
-    ), (
+    ),
+    (
         7,
         'Escritorio',
         'Meterial Fino',
@@ -167,7 +173,8 @@ VALUES (
         10,
         '20211212082759.jpg',
         3
-    ), (
+    ),
+    (
         8,
         'Abrigo',
         'Para niños',
@@ -176,7 +183,8 @@ VALUES (
         90,
         '20211212083037.jpg',
         4
-    ), (
+    ),
+    (
         11,
         'Carro',
         'carro',
@@ -195,17 +203,12 @@ VALUES (
 
 --
 
-CREATE DATABASE card;
-
-USE card;
-
-CREATE TABLE
-    `usuarios` (
-        `id` int(11) NOT NULL,
-        `usuario` varchar(20) NOT NULL,
-        `nombre` varchar(100) NOT NULL,
-        `clave` varchar(100) NOT NULL
-    ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
+CREATE TABLE `usuarios` (
+    `id` int(11) NOT NULL,
+    `usuario` varchar(20) NOT NULL,
+    `nombre` varchar(100) NOT NULL,
+    `clave` varchar(100) NOT NULL
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
 
 --
 
@@ -257,8 +260,7 @@ ALTER TABLE `compra` ADD PRIMARY KEY (`id`);
 
 ALTER TABLE `productos`
 ADD PRIMARY KEY (`id`),
-ADD
-    KEY `id_categoria` (`id_categoria`);
+ADD KEY `id_categoria` (`id_categoria`);
 
 --
 
@@ -280,9 +282,9 @@ ALTER TABLE `usuarios` ADD PRIMARY KEY (`id`);
 
 --
 
-ALTER TABLE
-    `categorias` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,
-    AUTO_INCREMENT = 13;
+ALTER TABLE `categorias`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,
+AUTO_INCREMENT = 13;
 
 --
 
@@ -298,9 +300,9 @@ ALTER TABLE `compra` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 
-ALTER TABLE
-    `productos` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,
-    AUTO_INCREMENT = 12;
+ALTER TABLE `productos`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,
+AUTO_INCREMENT = 12;
 
 --
 
@@ -308,9 +310,9 @@ ALTER TABLE
 
 --
 
-ALTER TABLE
-    `usuarios` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,
-    AUTO_INCREMENT = 2;
+ALTER TABLE `usuarios`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,
+AUTO_INCREMENT = 2;
 
 --
 
@@ -325,8 +327,7 @@ ALTER TABLE
 --
 
 ALTER TABLE `productos`
-ADD
-    CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 COMMIT;
 
